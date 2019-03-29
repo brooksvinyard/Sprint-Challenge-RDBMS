@@ -12,11 +12,11 @@ router.get('/', async (req, res) => {
         res.status(200).json(projects);
     } catch (error) {
         res.status(500).json(error);
-    } 
+    }
 });
 
 // localhost:4545/api/projects/:id
-// GET project and it's actions by id
+// GET project and its actions by id
 router.get('/:id', (req, res) => {
     db('projects')
         .where('projects.id', req.params.id)
@@ -50,8 +50,8 @@ router.post('/', async (req, res) => {
         const project = await Projects.addProject(req.body);
         res.status(201).json(project);
     } catch (error) {
-      const message = errors[error.errno] || 'We ran into an error';
-      res.status(500).json({ message, error });
+        const message = errors[error.errno] || 'We ran into an error';
+        res.status(500).json({ message, error });
     }
 });
 
